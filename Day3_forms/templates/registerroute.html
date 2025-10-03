@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <!-- Flash messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+         {% for category,message in messages %}
+            <div class="alert alert-{{category}}">
+               {{ message }}
+            </div>
+         {% endfor %}
+      {% endif %}
+      {% endwith %}
+   <center>
+      <form action="{{ url_for('registerform') }}">
+         {{ register_form.hidden_tag() }}
+
+         {{ register_form.name.label() }} 
+         {{ register_form.name(size=20,placeholder='Enter the name') }} <br><br>
+
+         {{ register_form.password.label() }} 
+         {{ register_form.password(size=20,placeholder='Enter the password') }} <br><br>
+
+         {{ register_form.email.label() }} 
+         {{ register_form.email(size=20,placeholder='Enter the email') }} <br><br>
+
+         {{ register_form.confirm_password.label() }} 
+         {{ register_form.confirm_password(size=20,placeholder='Confirm password') }} <br><br>
+
+         {{ register_form.submit() }}
+      </form>
+   </center>
+</body>
+</html>
