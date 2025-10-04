@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+   <form method="POST" action="{{ url_for('main_bp.registerform') }}">
+    {{ register_form.hidden_tag() }}
+    {{ register_form.name.label }} {{ register_form.name() }} <br>
+    {{ register_form.email.label }} {{ register_form.email() }} <br>
+    {{ register_form.password.label }} {{ register_form.password() }} <br>
+    {{ register_form.confirm_password.label }} {{ register_form.confirm_password() }} <br>
+    {{ register_form.submit() }}
+</form>
+
+   {% with messages = get_flashed_messages(with_categories=true) %}
+   {% if messages %}
+      {% for category, message in messages %}
+         <div>{{ message }}</div>
+      {% endfor %}
+   {% endif %}
+   {% endwith %}
+
+</body>
+</html>
+
