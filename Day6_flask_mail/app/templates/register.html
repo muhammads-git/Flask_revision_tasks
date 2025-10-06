@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>REGISTER</title>
+</head>
+<body>
+   <form action="{{ url_for('auth_bp.register') }}" method="POST">
+      {{ form.name.label() }}
+      {{ form.name(size=20,placeholder='Enter the name') }} <br> <br>
+
+      {{ form.password.label() }}
+      {{ form.password(size=20,placeholder='Enter the password')}} <br> <br>
+
+      {{ form.email.label() }}
+      {{ form.email(size=20,placeholder='Enter the email') }} <br> <br>
+
+      {{ form.submit() }}
+   </form>
+   
+</body>
+</html>

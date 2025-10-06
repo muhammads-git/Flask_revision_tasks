@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MESSAGE</title>
+</head>
+<body>
+   <form action="{{ url_for('auth_bp.mail_me') }}" method="POST">
+      {{ form.email.label() }}
+      {{ form.email(size=30,placeholder='Enter the email') }} <br><br>
+      
+      {{ form.submit() }}
+   </form>
+   
+</body>
+</html>
